@@ -1,0 +1,88 @@
+#дз1
+# class Calculator:
+#     def __init__(self):
+#         """Установка начальных значений"""
+#         self.num1 = None
+#         self.num2 = None
+#         self.operation = None
+#
+#     def get_input(self):
+#         """Получение ввода пользователя"""
+#         self.num1 = float(input('Введите число: '))
+#         self.num2 = float(input('Введите число: '))
+#         self.operation = input('Введите знак(+, -, *, /): ')
+#
+#     def calculate(self):
+#         """Выполнение вычислений"""
+#         if self.operation == '+':
+#             return float(self.num1 + self.num2)
+#         elif self.operation == '-':
+#             return float(self.num1 - self.num2)
+#         elif self.operation == '*':
+#             return float(self.num1 * self.num2)
+#         else:
+#             if self.num2 != 0:
+#                 return float(self.num1 / self.num2)
+#             else:
+#                 return 'Ошибка'
+#
+#     def run(self):
+#         """Запуск калькулятора"""
+#         self.get_input()
+#         result = self.calculate()
+#         print(f'Результат: {result}')
+#
+# calculator = Calculator()
+# calculator.run()
+
+
+#дз2
+# a = int(input('Выберите уровень от 1 до 5: '))
+# b = str(input('Введите строку: '))
+# if a == 1:
+#     c = int(input('Выберите команду(1 - сделать все буквы строчными, 2 - сделать все буквы заглавными, 3 - сделать первую букву заглавной): '))
+#     def l1(b: str, c: int):
+#         if c == 1:
+#             return b.upper()
+#         elif c == 2:
+#             return b.lower()
+#         else:
+#             return b.capitalize()
+#     print(l1(b, c))
+# if a == 2:
+#     c = int(input('Выберите команду(1 - найти любой символ, 2 - заменить любой символ, 3 - посчитать сколько раз встречается любой сивол): '))
+#     def l2(b: str, c: int):
+#         if c == 1:
+#             d1 = str(input('Введите символ, который вы хотите найти: '))
+#             return b.find(d1)
+#         elif c == 2:
+#             d2a = str(input('Введите символ, котрый вы хотите заменить: '))
+#             d2b = str(input('Введите символ, на котрый вы хотите заменить: '))
+#             return b.replace(d2a, d2b)
+#         else:
+#             d3 = str(input('Введите символ, количество которого вы хотите посчитать'))
+#             return b.count(d3)
+#     print(l2(b, c))
+# if a == 3:
+#     c = int(input('Выберите команду(1 - разделить строку по символу; 2 - вставить любой символ): '))
+#     def l3(b: str, c: int):
+#         if c == 1:
+#             e1 = str(input('Введите символ, по которому вы хотите разделять строку: '))
+#             return b.split(e1)
+#         else:
+#             e2 = str(input('Введите символ, который выхотите вставить: '))
+#             return e2.join(b)
+#     print(l3(b, c))
+# if a == 4:
+#     c = int(input('Выберите команду(1 - проверить, являются ли символы цифрами; 2 - проверить, являются ли символы буквами: 3 - удалить символ из строки; 4 - изменить формат):  '))
+#     def l4(b: str, c: int):
+#         if c == 1:
+#             return b.isdigit()
+#         elif c == 2:
+#             return b.isalpha()
+#         elif c == 3:
+#             k = str(input('Введите символ, который вы хотите удалить: '))
+#             return b.strip(k)
+#         else:
+#             return b.format()
+#     print(l4(b, c))  
