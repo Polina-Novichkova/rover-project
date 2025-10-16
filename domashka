@@ -85,4 +85,148 @@
 #             return b.strip(k)
 #         else:
 #             return b.format()
-#     print(l4(b, c))  
+#     print(l4(b, c)) 
+
+
+#дз3
+# from random import *
+# labirint = [[" " for x in range(8)] for y in range(8)]
+# labirint2 = [[" " for x in range(8)] for y in range(8)]
+# labirint[1][5] = "m"
+# labirint[3][2] = "p"
+# labirint[3][6] = "l"
+# labirint[5][4] = "s"
+# labirint[6][1] = "k"
+# labirint[7][0] = "k"
+# labirint[4][3] = "k"
+# labirint[7][7] = "e"
+# labirint[0][5] = "z"
+# def shag1(shag, tx, ty):
+#     if shag == "up":
+#         tx -= 1
+#     if shag == "down":
+#         tx += 1
+#     if shag == "right":
+#         ty += 1
+#     if shag == "left":
+#         ty -= 1
+#     return tx, ty
+# tx, ty = 0, 0
+# mech = 0
+# life = 3
+# key = 0
+# exit = 0
+# proshl = " "
+# px, py = 0, 0
+# while exit == 0:
+#     if life > 0:
+#         print("Количество жиней: ", life)
+#         labirint2[px][py] = proshl
+#         px, py = tx, ty
+#         proshl = labirint2[tx][ty]
+#         labirint2[tx][ty] = "Я"
+#         for x in labirint2:
+#             print(x)
+#         countshag = randint(1, 6)
+#         print("Количество шагов: ", countshag)
+#         for i in range(countshag):
+#             shag = str(input("up, down, right, left: "))
+#             tx, ty = shag1(shag, tx, ty)
+#             if tx < 0:
+#                 print("Ошибка. Ходить нельзя")
+#                 tx = 0
+#                 shag = str(input("up, down, right, left: "))
+#                 tx, ty = shag1(shag, tx, ty)
+#             if ty < 0:
+#                 print("Ошибка. Ходить нельзя")
+#                 ty = 0
+#                 shag = str(input("up, down, right, left: "))
+#                 tx, ty = shag1(shag, tx, ty)
+#             if tx > 7:
+#                 print("Ошибка. Ходить нельзя")
+#                 tx = 7
+#                 shag = str(input("up, down, right, left: "))
+#                 tx, ty = shag1(shag, tx, ty)
+#             if ty > 7:
+#                 print("Ошибка. Ходить нельзя")
+#                 ty = 7
+#                 shag = str(input("up, down, right, left: "))
+#                 tx, ty = shag1(shag, tx, ty)
+#             if labirint[tx][ty] == "m":
+#                 print("МОНСТР")
+#                 if mech == 0:
+#                     life -= 1
+#                     print("Нужен меч")
+#                     labirint2[1][5] = "m"
+#                     tx, ty = 0, 0
+#                 else:
+#                     print("Ты победил монстра")
+#                     mech -= 1
+#             elif labirint[tx][ty] == "l":
+#                 print("ЛОВУШКА")
+#                 life -= 1
+#                 labirint2[3][6] = "l"
+#                 tx, ty = 0, 0
+#             elif labirint[tx][ty] == "s":
+#                 print("СУНДУК")
+#                 mech += 1
+#                 labirint2[5][4] = "s"
+#             elif labirint[tx][ty] == "k":
+#                 print("КЛЮЧ")
+#                 key += 1
+#                 labirint2[tx][ty] = "k"
+#             elif labirint[tx][ty] == "z":
+#                 print("ЗЕЛЬЕ ЖИЗНИ")
+#                 life += 1
+#                 labirint2[0][5] = "z"
+#             elif labirint[tx][ty] == "e":
+#                 if key == 0:
+#                     print("Ты нашёл ВЫХОД, но не нашёл ключ:(")
+#                     life -= 1
+#                     labirint2[7][7] = "e"
+#                     tx, ty = 0, 0
+#                 else:
+#                     print('Ты нашёл ВЫХОД и ПОБЕДИЛ')
+#                     exit += 1
+#             elif labirint[tx][ty] == "p":
+#                 labirint2[tx][ty] = "p"
+#                 tx = randint(0, 7)
+#                 ty = randint(0, 7)
+#                 if labirint[tx][ty] == "m":
+#                     print("МОНСТР")
+#                     if mech == 0:
+#                         life -= 1
+#                         print("Нужен меч")
+#                         labirint2[1][5] = "m"
+#                         tx, ty = 0, 0
+#                     else:
+#                         print("Ты победил монстра")
+#                         mech -= 1
+#                 elif labirint[tx][ty] == "l":
+#                     print("ЛОВУШКА")
+#                     life -= 1
+#                     labirint2[3][6] = "l"
+#                     tx, ty = 0, 0
+#                 elif labirint[tx][ty] == "s":
+#                     print("СУНДУК")
+#                     mech += 1
+#                     labirint2[5][4] = "s"
+#                 elif labirint[tx][ty] == "k":
+#                     print("КЛЮЧ")
+#                     key += 1
+#                     labirint2[tx][ty] = "k"
+#                 elif labirint[tx][ty] == "z":
+#                     print("ЗЕЛЬЕ ЖИЗНИ")
+#                     life += 1
+#                     labirint2[0][5] = "z"
+#                 elif labirint[tx][ty] == "e":
+#                     if key == 0:
+#                         print("Ты нашёл ВЫХОД, но не нашёл ключ:(")
+#                         life -= 1
+#                         labirint2[7][7] = "e"
+#                         tx, ty = 0, 0
+#                     else:
+#                         print('Ты нашёл ВЫХОД и ПОБЕДИЛ')
+#                         exit += 1
+#     else:
+#         exit += 1
