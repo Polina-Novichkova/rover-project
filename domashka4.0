@@ -1,0 +1,23 @@
+#дз4
+import pandas as pd
+import numpy as np
+import csv
+with open ('train_and_test2.csv') as f:
+    a=csv.reader(f)
+    df=pd.DataFrame(a)
+    df=df.drop(columns=[5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,22,23,25,26])
+
+    n=int(input())
+    print(df.head(n+1))
+
+    age=df.loc[:,1]
+    sr_age=age.describe()
+    print(sr_age)
+
+    print(df.shape)
+
+a = int(input())
+if a % 2 == 0:
+    print("Число чётное")
+else:
+    print("Число нечётное")
