@@ -1,0 +1,36 @@
+#дз1
+class Calculator:
+    def __init__(self):
+        """Установка начальных значений"""
+        self.num1 = None
+        self.num2 = None
+        self.operation = None
+
+    def get_input(self):
+        """Получение ввода пользователя"""
+        self.num1 = float(input('Введите число: '))
+        self.num2 = float(input('Введите число: '))
+        self.operation = input('Введите знак(+, -, *, /): ')
+
+    def calculate(self):
+        """Выполнение вычислений"""
+        if self.operation == '+':
+            return float(self.num1 + self.num2)
+        elif self.operation == '-':
+            return float(self.num1 - self.num2)
+        elif self.operation == '*':
+            return float(self.num1 * self.num2)
+        else:
+            if self.num2 != 0:
+                return float(self.num1 / self.num2)
+            else:
+                return 'Ошибка'
+
+    def run(self):
+        """Запуск калькулятора"""
+        self.get_input()
+        result = self.calculate()
+        print(f'Результат: {result}')
+
+calculator = Calculator()
+calculator.run()
