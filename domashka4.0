@@ -1,23 +1,32 @@
 #дз4
 import pandas as pd
-import numpy as np
-import csv
-with open ('train_and_test2.csv') as f:
-    a=csv.reader(f)
-    df=pd.DataFrame(a)
-    df=df.drop(columns=[5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,22,23,25,26])
+df = pd.read_csv('train_and_test2.csv')
+df = df.drop(columns=df.columns[[5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 25, 26 ]])
+age = df.loc[:, 'Age']
+n = int(input())
+print(df.head(n + 1))
+print(age.describe())
+print("shape: ", df.shape)
 
-    n=int(input())
-    print(df.head(n+1))
+mn = df['Age'][df['Age'] > 30][df['Sex'] == 1].mean()  # средний возраст мужчин старше 30 лет
+print(mn)
+print(df.head(5))
+ac = df['Pclass'][df['2urvived'] == 1].value_counts()
+first_class_alive_perc = ac[1] / ac.sum() * 100
+print(ac)
+print(first_class_alive_perc)
 
-    age=df.loc[:,1]
-    sr_age=age.describe()
-    print(sr_age)
+am = df[df['Sex'] == 1][df['2urvived'] == 1].shape[0]
+aw = df[df['Sex'] == 0][df['2urvived'] == 1].shape[0]
 
-    print(df.shape)
+print(am, aw, am / aw)
 
-a = int(input())
-if a % 2 == 0:
-    print("Число чётное")
-else:
-    print("Число нечётное")
+mean_am = df['Age'][df['Sex'] == 1][df['2urvived'] == 1].mean()
+mean_dm = df['Age'][df['Sex'] == 1][df['2urvived'] == 0].mean()
+
+mean_aw = df['Age'][df['Sex'] == 0][df['2urvived'] == 1].mean()
+mean_dw = df['Age'][df['Sex'] == 0][df['2urvived'] == 0].mean()
+print(mean_am)
+print(mean_dm)
+print(mean_aw)
+print(mean_dw)
